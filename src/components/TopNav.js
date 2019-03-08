@@ -1,26 +1,38 @@
 import React from 'react'
 
-const TopNav = () => {
+const TopNav = ({ changeCategory }) => {
   return (
     <div className="top-nav">
       <ul>
         <li>
-          <a href="carlights.html">car lights</a>
+          <a href="#" onClick={() => changeCategory('lights')}>
+            car lights
+          </a>
         </li>
         <li>
-          <a href="carwheels.html">Car wheels</a>
+          <a href="#" onClick={() => changeCategory('tires')}>
+            Car wheels
+          </a>
         </li>
         <li>
-          <a href="carbumpers.html">car bumpers</a>
+          <a href="#" onClick={() => changeCategory('bumpers')}>
+            car bumpers
+          </a>
         </li>
         <li>
-          <a href="caradsystem.html">car audiosystem</a>
+          <a href="#" onClick={() => changeCategory('audio')}>
+            car audiosystem
+          </a>
         </li>
         <li>
-          <a href="truckbumpers.html">Truck bumpers</a>
+          <a href="#" onClick={() => changeCategory('bumpers')}>
+            Truck bumpers
+          </a>
         </li>
         <li>
-          <a href="contact.html">Feedback</a>
+          <a href="#" onClick={() => changeCategory()}>
+            Feedback
+          </a>
         </li>
         <div className="clear"> </div>
       </ul>

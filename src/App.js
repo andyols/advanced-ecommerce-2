@@ -16,7 +16,7 @@ function App(props) {
           <div className="clear"> </div>
           <SubHeader />
           <div className="clear"> </div>
-          <TopNav />
+          <TopNav changeCategory={props.changeCategory} />
         </div>
 
         <ImageSlider />
@@ -28,36 +28,18 @@ function App(props) {
                 <span>FEATURED</span> PRODUCTS
               </h5>
               <div className="section group">
-                <ProductDetail
-                  img="images/g3.png"
-                  title="Flux Capacitor"
-                  desc="This is a super fancy car part."
-                  price="$9999.00"
-                />
-                <ProductDetail
-                  img="images/g1.jpg"
-                  title="Flux Capacitor"
-                  desc="This is a super fancy car part."
-                  price="$9999.00"
-                />
-                <ProductDetail
-                  img="images/g2.jpg"
-                  title="Flux Capacitor"
-                  desc="This is a super fancy car part."
-                  price="$9999.00"
-                />
-                <ProductDetail
-                  img="images/g3.png"
-                  title="Flux Capacitor"
-                  desc="This is a super fancy car part."
-                  price="$9999.00"
-                />
-                <ProductDetail
-                  img="images/g4.jpg"
-                  title="Flux Capacitor"
-                  desc="This is a super fancy car part."
-                  price="$9999.00"
-                />
+                {props.state.products
+                  .filter(product =>
+                    product.category === props.currentCategory ? product : null
+                  )
+                  .map(product => (
+                    <ProductDetail
+                      img={product.imgUrl}
+                      title={product.name}
+                      desc={product.description}
+                      price={product.price}
+                    />
+                  ))}
               </div>
             </div>
             <div className="products products-secondbox">
